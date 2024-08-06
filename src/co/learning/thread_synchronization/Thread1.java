@@ -5,6 +5,7 @@ public class Thread1 extends Thread{
 	public Thread1 (MathUtil mu) {
 		this.mu = mu;
 	}
+
 	@Override
 	public void run() {
 		try {

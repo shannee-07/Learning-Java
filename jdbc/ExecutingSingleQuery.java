@@ -108,8 +108,8 @@ public class ExecutingSingleQuery {
 //            Delete query works the same way
 
 //            executeInsertQueryUsingPreparedStatement(connection, "Natasha Romanoff", 40);
-//            executeSelectQueryUsingStatement(connection, "select * from person");
-            executeSelectQueryUsingPreparedStatement(connection,9);
+            executeSelectQueryUsingStatement(connection, "select * from person");
+//            executeSelectQueryUsingPreparedStatement(connection,9);
 
         } catch (SQLException e) {
             throw new RuntimeException(e);

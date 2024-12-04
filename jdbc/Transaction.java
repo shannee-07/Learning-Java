@@ -26,11 +26,11 @@ public class Transaction {
             PreparedStatement debitPreparedStatement = connection.prepareStatement(debitQuery);
             PreparedStatement creditPreparedStatement = connection.prepareStatement(creditQuery);
 
-            debitPreparedStatement.setDouble(1,100);
-            debitPreparedStatement.setInt(2,100);
+            debitPreparedStatement.setDouble(1, 100);
+            debitPreparedStatement.setInt(2, 100);
 
-            creditPreparedStatement.setDouble(1,101);
-            creditPreparedStatement.setInt(2,100);
+            creditPreparedStatement.setDouble(1, 101);
+            creditPreparedStatement.setInt(2, 100);
 
             connection.commit();  // connection.rollback() if fails
 

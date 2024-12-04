@@ -23,7 +23,7 @@ public class BatchProcessing {
             Scanner sc = new Scanner(System.in);
             String query = "INSERT INTO person(name, age) VALUES (?, ?)";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
-            while(true){
+            while (true) {
                 System.out.println("Enter name of the person");
                 String name = sc.next();
 
@@ -34,14 +34,14 @@ public class BatchProcessing {
                 preparedStatement.addBatch();
                 System.out.println("Enter more data?(Y/N)");
                 String input = sc.next();
-                if("N".equalsIgnoreCase(input)){
+                if ("N".equalsIgnoreCase(input)) {
                     break;
                 }
             }
 
             int[] rowsAffected = preparedStatement.executeBatch();
-            for(int i: rowsAffected){
-                System.out.print(i+" ");
+            for (int i : rowsAffected) {
+                System.out.print(i + " ");
             }
 
 

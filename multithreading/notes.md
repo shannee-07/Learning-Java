@@ -1,40 +1,21 @@
-# Thread States
+### **Life Cycle of a Thread**
 
-Threads in Java go through various stages or phases in their life cycle. These are different thread states:
+1. **New**: A thread begins its life in the "New" state when an object of the `Thread` class is created but not started (`Thread t = new Thread();`).
+2. **Runnable**: After calling the `start()` method, the thread moves to the "Runnable" state and is ready for execution but not yet running.
+3. **Running**: When the thread scheduler selects the thread, it enters the "Running" state and executes its task.
+4. **Blocked/Waiting**: If a thread is waiting for a resource or signal, it moves to the "Blocked" or "Waiting" state.
+5. **Terminated**: After execution is complete, the thread moves to the "Terminated" state and cannot be restarted.
 
-## 1. New State
+### Thread Control Methods
+- **start()**: Starts the execution of the thread.
+- **run()**: Contains the code executed by the thread.
+- **sleep(milliseconds)**: Puts the thread to sleep for the specified time.
+- **join()**: Waits for a thread to finish execution.
+- **yield()**: Allows other threads to execute.
+- **setPriority(priority)**: Sets the thread's priority (1 to 10).
 
-- A thread is in the "new" state when it's created but hasn't started running yet.
-- In this state, the thread's code hasn't executed.
-- **Example Code**: The `Thread1` and `Thread2` class instances created are in the "new" state initially.
+### Important points:
 
-## 2. Runnable State
-
-- A thread is in the "runnable" state when it's ready to run.
-- It might actually be executing or waiting for CPU time.
-- The thread scheduler allocates time to each runnable thread.
-- **Example Code**: After calling `start()`, the threads move to the "runnable" state and compete for CPU time.
-
-## 3. Blocked State
-
-- A thread is in the "blocked" state when it's trying to acquire a lock held by another thread.
-- It waits until the lock becomes available.
-- **Example Code**: Coming soon...
-
-## 4. Waiting State
-
-- A thread enters the "waiting" state when it calls methods like `wait()` or `join()`.
-- It waits for notification from another thread or termination.
-- **Example Code**: Coming soon...
-
-## 5. Timed Waiting State
-
-- A thread is in the "timed waiting" state when it calls methods with a timeout parameter (e.g., `sleep` or conditional waits).
-- It remains in this state until the timeout expires or it receives a notification.
-- **Example Code**: Using `Thread.sleep()`.
-
-## 6. Terminated State
-
-- A thread terminates due to normal completion or exceptional events (e.g., unhandled exceptions).
-- In the "terminated" state, the thread has finished executing.
-- **Example Code**: Threads eventually reach the "terminated" state after executing their code.
+- The Runnable interface provides a contract that any class can use to define its run() method. It does not represent a thread itself but rather the task that a thread will execute.
+- In my words: When we write extends Thread , then that class becomes a thread itself, but when we implement Runnable, then that class becomes a task that a Thread will execute, so we are passing that task into a thread object
+- When you call thread.join(), the calling thread (usually the main thread) will pause and wait until the specified thread finishes executing its run() method.

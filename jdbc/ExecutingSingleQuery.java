@@ -80,7 +80,7 @@ public class ExecutingSingleQuery {
             // .next() checks if there is data in resultSet
             if (resultSet.next()) {
                 System.out.println(resultSet.getInt("id") + " " + resultSet.getString("name") + " " + resultSet.getInt("age"));
-            }else{
+            } else {
                 System.out.println("Person not found");
             }
         } catch (SQLException e) {

@@ -35,4 +35,8 @@ public class MathUtil {
 
 
     }
+    synchronized void method() {
+        // thread-safe code
+    }
+
 }
